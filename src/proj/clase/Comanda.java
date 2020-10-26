@@ -62,18 +62,14 @@ public class Comanda implements Serializable {
     public Comanda(Client client, HashMap<Produs, Integer> produse) {
         nrComanda++;
         this.client = client;
-        this.pret = 0;
         this.discount = 0;
         this.produse = produse;
-        this.data = new Date();
-    }
-
-    public void plaseazaComanda() {
-        for (Produs produs : produse.keySet()) {
-            this.pret += produs.getPret();
+        for (Map.Entry<Produs, Integer> produs : this.produse.entrySet()) {
+            this.pret += produs.getKey().getPret()*produs.getValue();
         }
         this.data = new Date();
     }
+
 
     @Override
     public String toString() {

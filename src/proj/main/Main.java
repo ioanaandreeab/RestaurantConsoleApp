@@ -153,7 +153,7 @@ public class Main {
                         if (confirmComanda.equals("YES")) {
                             Client clientCurent = new Client(nume, telefon, false);
                             Comanda comanda = new Comanda(clientCurent, produseMap);
-                            comanda.plaseazaComanda();
+                            //comanda.plaseazaComanda();
                             restaurant.adaugaComanda(comanda);
                         }
 

@@ -5,6 +5,7 @@ import de.codeshelf.consoleui.prompt.builder.ListPromptBuilder;
 import de.codeshelf.consoleui.prompt.builder.PromptBuilder;
 import jline.TerminalFactory;
 import org.fusesource.jansi.AnsiConsole;
+import proj.clase.ModPlata;
 import proj.clase.*;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class Main {
         String COMENZI_ABSOLUTE_PATH = "C:\\Users\\ioana\\Desktop\\Master\\An1\\PPOO\\proj\\src\\comenzi.dat";
 
         //produsele comandate de client
-        HashMap<Produs, Integer> produseMap = new HashMap<>();
+        HashMap<Produs, Integer> produseMap;
         //initializare librarie
         AnsiConsole.systemInstall();
 
@@ -62,6 +63,7 @@ public class Main {
 
                 switch (choiceMade.getSelectedId()) {
                     case "Plaseaza comanda":
+                        produseMap = new HashMap<>();
 
                         boolean adaugaProduse = true;
                         while (adaugaProduse) {
@@ -142,6 +144,33 @@ public class Main {
                         String nume = ((InputResult) result.get("name")).getInput();
                         String telefon = ((InputResult) result.get("phone")).getInput();
 
+
+                        //card de fidelitate
+                        boolean hasCardFidelitate = false;
+                        ConsolePrompt promptFidelitate = new ConsolePrompt();
+                        PromptBuilder promptBuilderFidelitate = promptFidelitate.getPromptBuilder();
+                        promptBuilderFidelitate.createConfirmPromp().name("fidelitate").message("Card de fidelitate?").defaultValue(ConfirmChoice.ConfirmationValue.YES).addPrompt();
+                        result = promptFidelitate.prompt(promptBuilderFidelitate.build());
+                        ConfirmResult cardFidelitateResult = (ConfirmResult) result.get("fidelitate");
+                        String cardFidelitate = cardFidelitateResult.getConfirmed().toString();
+                        if(cardFidelitate.equals("YES")) {
+                            hasCardFidelitate = true;
+                        }
+
+                        //metoda plata
+                        ModPlata modPlataAles = null;
+                        ConsolePrompt promptPlata = new ConsolePrompt();
+                        PromptBuilder promptBuilderPlata = promptPlata.getPromptBuilder();
+                        ListPromptBuilder listPlata = promptBuilderPlata.createListPrompt();
+                        listPlata.name("paytype").message("Alegeti statistica dorita");
+                        for(ModPlata modPlata : ModPlata.values()) {
+                            listPlata.newItem().text(modPlata.toString()).add();
+                        }
+                        listPlata.addPrompt();
+                        result = promptPlata.prompt(promptBuilderPlata.build());
+                        choiceMade = (ListResult) result.get("paytype");
+                        modPlataAles = ModPlata.valueOf(choiceMade.getSelectedId());
+
                         //comanda
                         ConsolePrompt promptComanda = new ConsolePrompt();
                         PromptBuilder promptBuilderComanda = promptComanda.getPromptBuilder();
@@ -151,14 +180,39 @@ public class Main {
                         String confirmComanda = proceseazaComanda.getConfirmed().toString();
 
                         if (confirmComanda.equals("YES")) {
-                            Client clientCurent = new Client(nume, telefon, false);
+                            Client clientCurent = new Client(nume, telefon, hasCardFidelitate);
                             Comanda comanda = new Comanda(clientCurent, produseMap);
-                            //comanda.plaseazaComanda();
+                            comanda.plaseazaComanda(modPlataAles);
                             restaurant.adaugaComanda(comanda);
                         }
 
                         break;
+
                     case "Vizualizare statistici":
+                        ConsolePrompt promptStats = new ConsolePrompt();
+                        PromptBuilder promptBuilderStats = promptStats.getPromptBuilder();
+                        ListPromptBuilder listStats = promptBuilderStats.createListPrompt();
+                        listStats.name("stattype").message("Alegeti statistica dorita");
+                        listStats.newItem().text("Vanzare totala curenta").add()
+                        .newItem().text("Produs preferat zi curenta").add()
+                        .newItem().text("Produs preferat all time").add();
+                        listStats.addPrompt();
+                        result = promptStats.prompt(promptBuilderStats.build());
+                        choiceMade = (ListResult) result.get("stattype");
+                        switch (choiceMade.getSelectedId()) {
+                            case "Vanzare totala curenta":
+                                System.out.println("In ziua curenta s-a incasat un total de "+restaurant.interogheazaVanzariZiCurenta()+ " lei");
+                                break;
+                            case "Produs preferat zi curenta":
+                                System.out.println("Produsul preferat din ziua curenta este "+restaurant.produsPreferatZiCurenta());
+                                break;
+                            case "Produs preferat all time":
+                                System.out.println("Produsul preferat all time este "+restaurant.produsPreferatAllTime());
+                                break;
+                            case "Produse comandate astazi":
+                                String[] produseComandate = restaurant.getProduseComandateAzi();
+                                break;
+                        }
                         break;
                     case "Creare rapoarte":
                         break;

@@ -4,20 +4,13 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Comanda implements Serializable {
-    private static int nrComanda;
+    private static final long serialVersionUID=333;
     private Client client;
     private double pret;
     private int discount;
     private HashMap<Produs, Integer> produse;
     private Date data;
-
-    public static int getNrComanda() {
-        return nrComanda;
-    }
-
-    public static void setNrComanda(int nrComanda) {
-        Comanda.nrComanda = nrComanda;
-    }
+    private ModPlata modPlata;
 
     public Client getClient() {
         return client;
@@ -60,16 +53,21 @@ public class Comanda implements Serializable {
     }
 
     public Comanda(Client client, HashMap<Produs, Integer> produse) {
-        nrComanda++;
         this.client = client;
         this.discount = 0;
+        this.pret = 0;
         this.produse = produse;
+        this.data = new Date();
+        this.modPlata = null;
+    }
+
+    public void plaseazaComanda(ModPlata modPlata) {
         for (Map.Entry<Produs, Integer> produs : this.produse.entrySet()) {
             this.pret += produs.getKey().getPret()*produs.getValue();
         }
+        this.modPlata = modPlata;
         this.data = new Date();
     }
-
 
     @Override
     public String toString() {
@@ -82,6 +80,7 @@ public class Comanda implements Serializable {
                 "Produse:" + stringProduseComandate +
                 ", Pret:" + pret +
                 ", Discount:" + discount +
+                ", Mod plata: " + modPlata +
                 "\nData: " + data ;
     }
 }

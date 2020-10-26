@@ -3,6 +3,7 @@ package proj.clase;
 import java.io.Serializable;
 
 public class Client implements Serializable {
+    private static final long serialVersionUID=444;
     private String nume;
     private String nrTelefon;
     private boolean cardFidelitate;

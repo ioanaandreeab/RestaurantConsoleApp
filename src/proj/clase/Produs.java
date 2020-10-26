@@ -3,6 +3,7 @@ package proj.clase;
 import java.io.Serializable;
 
 public class Produs implements Serializable {
+    private static final long serialVersionUID=555;
     private static int idHelper = 0;
     private int id;
     private String denumire;

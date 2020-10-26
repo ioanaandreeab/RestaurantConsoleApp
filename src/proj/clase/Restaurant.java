@@ -6,9 +6,9 @@ import proj.clase.Meniu;
 import proj.clase.Produs;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.*;
 
 public class Restaurant {
     private String nume;
@@ -121,6 +121,42 @@ public class Restaurant {
         }
     }
 
+    public void genereazaRaportVanzariSaptamanale() {
+
+    }
+
+    public double interogheazaVanzariZiCurenta() {
+        double total = 0;
+        for (Comanda comanda : comenzi) {
+            LocalDate currentDate = LocalDate.now();
+            if(currentDate.getDayOfMonth() == comanda.getData().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getDayOfMonth()) {
+                total += comanda.getPret();
+            }
+        }
+        return total;
+    }
+
+    public String produsPreferatZiCurenta() {
+        HashMap<Produs, Integer> produseMap = new HashMap<>();
+        for(Comanda comanda: comenzi) {
+            for(Map.Entry<Produs, Integer> produs : comanda.getProduse().entrySet()) {
+                if(!(produseMap.containsKey(produs.getKey()))) {
+                    produseMap.put(produs.getKey(),produs.getValue());
+                } else {
+                    produseMap.put(produs.getKey(), produseMap.get(produs.getKey())+produs.getValue());
+                }
+            }
+        }
+        Produs produsPreferat = Collections.max(produseMap.entrySet(), Map.Entry.comparingByValue()).getKey();
+
+        return produsPreferat.getDenumire();
+    }
+
+    public String produsPreferatAllTime() {
+        String produsPreferat = "";
+        return produsPreferat;
+    }
+
     public Meniu getMeniu(String tipMeniu) {
         Meniu meniuCautat = null;
         for(int i=0;i<this.meniuri.length;i++) {
@@ -142,5 +178,15 @@ public class Restaurant {
         }
         meniuriFinale[this.meniuri.length] = meniu;
         setMeniuri(meniuriFinale);
+    }
+
+    public String[] getProduseComandateAzi() {
+        String[] produseComandate = new String[0];
+        for(Comanda comanda: comenzi) {
+            for(Map.Entry<Produs, Integer> produs : comanda.getProduse().entrySet()) {
+                
+            }
+        }
+        return  produseComandate;
     }
 }

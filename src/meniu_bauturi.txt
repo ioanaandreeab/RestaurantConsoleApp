@@ -1,0 +1,28 @@
+Categorie:Ceai, Cafea
+Cafea,150,ml,8
+Cappucino,150,ml,9
+Ciocolata calda,200,ml,10
+Ceai(infuzie),250,ml,8
+Categorie:Bere
+Ursus Premium,330,ml,8
+Efes Draft,500,ml,11
+Ursus Pale ALE Panda,330,ml,9
+Categorie:Spirtoase
+Gin Beefeater,50,ml,15
+Aperol,50,ml,15
+Jim Beam,50,ml,15
+Categorie:Racoritoare & Energizant
+Fanta,250,ml,7
+Sprite,250,ml,7
+Dorna plata,250,ml,7
+Fuzetea,250,ml,8
+Categorie:Limonada
+Clasica,400,ml,12
+Mojito,400,ml,15
+Mango,400,ml,15
+Categorie:Cocktails
+Pina Colada,250,ml,18
+Mai Tai,250,ml,25
+Cosmopolitan,100,ml,19
+Green Apple,250,ml,12
+Passion Mojito,250,ml,12

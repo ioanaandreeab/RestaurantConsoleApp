@@ -1,0 +1,31 @@
+Categorie:Aperitive
+Aperitiv Grecesc,350,g,25
+Dovlecei gratinati cu pui,350,g,32
+Quesadilla,300,g,30
+Quesadilla vegetariana,300,g,30
+Categorie:Supe
+Crema de rosii,200,g,18
+Crema de broccoli,200,g,18
+Supa de branza,200,g,19
+Categorie:Salate
+Salata de sezon,200,g,14
+Salata tripoli,350,g,35
+Salata Caesar,600,g,35
+Categorie:Paste
+Penne quattro formaggi,450,g,37
+Tagliatelle cu ciuperci si pui,450,g,37
+Tagliatelle verzi cu somon,450,g,38
+Categorie:Feluri principale
+Ribs,700,g,40
+Fajitas de pui,450,g,35
+Hot wings,450,g,25
+Kebap de vita,400,g,30
+Categorie:Burgeri
+Burger Shift,550,g,97
+Burger Alt Shift,550,g,39
+Burger Veggie,550,g,37
+Categorie:Desert
+Strudel cu mere,250,g,20
+Tarta cu fructe,300,g,20
+Desert cald cu ciocolata si inghetata,200,g,22
+Tort de bezea cu fructe de padure,250,g,22

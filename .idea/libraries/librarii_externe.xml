@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="librarii_externe">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/proj/librarii_externe/consoleui-0.0.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/proj/librarii_externe/jansi-1.18.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/proj/librarii_externe/jline-2.14.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

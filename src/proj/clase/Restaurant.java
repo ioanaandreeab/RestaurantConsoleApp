@@ -181,12 +181,17 @@ public class Restaurant {
     }
 
     public String[] getProduseComandateAzi() {
-        String[] produseComandate = new String[0];
+        String[] produseComandate = new String[]{};
+        String[] updatedProducts = null;
         for(Comanda comanda: comenzi) {
             for(Map.Entry<Produs, Integer> produs : comanda.getProduse().entrySet()) {
-                
+                if(Arrays.stream(produseComandate).noneMatch(item->item.equals(produs.getKey().getDenumire()))) {
+                    updatedProducts = Arrays.copyOf(produseComandate, produseComandate.length + 1);
+                    updatedProducts[produseComandate.length] = produs.getKey().getDenumire();
+                    produseComandate = updatedProducts;
+                }
             }
         }
-        return  produseComandate;
+        return produseComandate;
     }
 }

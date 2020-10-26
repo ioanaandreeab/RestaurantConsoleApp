@@ -183,7 +183,7 @@ public class Main {
                             Client clientCurent = new Client(nume, telefon, hasCardFidelitate);
                             Comanda comanda = new Comanda(clientCurent, produseMap);
                             comanda.plaseazaComanda(modPlataAles);
-                            restaurant.adaugaComanda(comanda);
+                            comenziCurente.add(comanda);
                         }
 
                         break;
@@ -195,7 +195,8 @@ public class Main {
                         listStats.name("stattype").message("Alegeti statistica dorita");
                         listStats.newItem().text("Vanzare totala curenta").add()
                         .newItem().text("Produs preferat zi curenta").add()
-                        .newItem().text("Produs preferat all time").add();
+                        .newItem().text("Produs preferat all time").add()
+                        .newItem().text("Produse comandate astazi").add();
                         listStats.addPrompt();
                         result = promptStats.prompt(promptBuilderStats.build());
                         choiceMade = (ListResult) result.get("stattype");
@@ -211,12 +212,20 @@ public class Main {
                                 break;
                             case "Produse comandate astazi":
                                 String[] produseComandate = restaurant.getProduseComandateAzi();
+                                try {
+                                    for(String produs : produseComandate) {
+                                        System.out.println("\n"+produs);
+                                    }
+                                } catch (NullPointerException e) {
+                                    System.out.println("Nu au fost comandate inca produse astazi");
+                                }
                                 break;
                         }
                         break;
                     case "Creare rapoarte":
                         break;
                     case "Paraseste aplicatia":
+                        restaurant.setComenzi(comenziCurente);
                         restaurant.salveazaComenziInFisier(COMENZI_ABSOLUTE_PATH);
                         System.out.println("O zi frumoasa!");
                         System.exit(0);

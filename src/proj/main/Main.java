@@ -17,12 +17,11 @@ import static org.fusesource.jansi.Ansi.ansi;
 
 
 public class Main {
+    private static final String MENIU_BAUTURI_ABSOLUTE_PATH = "C:\\Users\\ioana\\Desktop\\Master\\An1\\PPOO\\proj\\src\\meniu_bauturi.txt";
+    private static final String MENIU_MANCARE_ABSOLUTE_PATH = "C:\\Users\\ioana\\Desktop\\Master\\An1\\PPOO\\proj\\src\\meniu_mancare.txt";
+    private static final String COMENZI_ABSOLUTE_PATH = "C:\\Users\\ioana\\Desktop\\Master\\An1\\PPOO\\proj\\src\\comenzi.dat";
 
-    public static void main(String[] args) throws InterruptedException {
-        //caile absolute pentru meniuri
-        String MENIU_BAUTURI_ABSOLUTE_PATH = "C:\\Users\\ioana\\Desktop\\Master\\An1\\PPOO\\proj\\src\\meniu_bauturi.txt";
-        String MENIU_MANCARE_ABSOLUTE_PATH = "C:\\Users\\ioana\\Desktop\\Master\\An1\\PPOO\\proj\\src\\meniu_mancare.txt";
-        String COMENZI_ABSOLUTE_PATH = "C:\\Users\\ioana\\Desktop\\Master\\An1\\PPOO\\proj\\src\\comenzi.dat";
+    public static void main(String[] args) {
 
         //produsele comandate de client
         HashMap<Produs, Integer> produseMap;
@@ -194,8 +193,7 @@ public class Main {
                         ListPromptBuilder listStats = promptBuilderStats.createListPrompt();
                         listStats.name("stattype").message("Alegeti statistica dorita");
                         listStats.newItem().text("Vanzare totala curenta").add()
-                        .newItem().text("Produs preferat zi curenta").add()
-                        .newItem().text("Produs preferat all time").add()
+                        .newItem().text("Produs preferat").add()
                         .newItem().text("Produse comandate astazi").add();
                         listStats.addPrompt();
                         result = promptStats.prompt(promptBuilderStats.build());
@@ -204,11 +202,8 @@ public class Main {
                             case "Vanzare totala curenta":
                                 System.out.println("In ziua curenta s-a incasat un total de "+restaurant.interogheazaVanzariZiCurenta()+ " lei");
                                 break;
-                            case "Produs preferat zi curenta":
-                                System.out.println("Produsul preferat din ziua curenta este "+restaurant.produsPreferatZiCurenta());
-                                break;
-                            case "Produs preferat all time":
-                                System.out.println("Produsul preferat all time este "+restaurant.produsPreferatAllTime());
+                            case "Produs preferat":
+                                restaurant.produsPreferat();
                                 break;
                             case "Produse comandate astazi":
                                 String[] produseComandate = restaurant.getProduseComandateAzi();
@@ -223,6 +218,20 @@ public class Main {
                         }
                         break;
                     case "Creare rapoarte":
+                        ConsolePrompt promptReports = new ConsolePrompt();
+                        PromptBuilder promptBuilderReports = promptReports.getPromptBuilder();
+                        ListPromptBuilder listReports = promptBuilderReports.createListPrompt();
+                        listReports.name("reporttype").message("Alegeti raportul pe care doriti sa-l generati");
+                        listReports.newItem().text("Vanzari zi curenta").add()
+                                .newItem().text("Cele mai populare produse").add();
+                        listReports.addPrompt();
+                        result = promptReports.prompt(promptBuilderReports.build());
+                        choiceMade = (ListResult) result.get("reporttype");
+                        if(choiceMade.getSelectedId().equals("Vanzari zi curenta")) {
+                            restaurant.genereazaRaportVanzariZiCurenta();
+                        } else {
+                            restaurant.genereazaRaportProdusePopulare();
+                        }
                         break;
                     case "Paraseste aplicatia":
                         restaurant.setComenzi(comenziCurente);

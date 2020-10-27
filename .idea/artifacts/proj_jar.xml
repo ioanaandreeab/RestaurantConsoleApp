@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="proj:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/proj_jar</output-path>
+    <root id="archive" name="proj.jar">
+      <element id="module-output" name="proj" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/proj/librarii_externe/consoleui-0.0.13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/proj/librarii_externe/jansi-1.18.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/proj/librarii_externe/jline-2.14.6.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

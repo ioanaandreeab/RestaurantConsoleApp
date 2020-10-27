@@ -9,6 +9,8 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Restaurant {
     private String nume;
@@ -121,7 +123,116 @@ public class Restaurant {
         }
     }
 
-    public void genereazaRaportVanzariSaptamanale() {
+    private HashMap<String, Integer> calculeazaVanzariTotalePerProdus() {
+        HashMap<String, Integer> produseMap = new HashMap<>();
+        for(Comanda comanda: comenzi) {
+            for(Map.Entry<Produs, Integer> produs : comanda.getProduse().entrySet()) {
+                if(!(produseMap.containsKey(produs.getKey().getDenumire()))) {
+                    produseMap.put(produs.getKey().getDenumire(),produs.getValue());
+                } else {
+                    produseMap.put(produs.getKey().getDenumire(), produseMap.get(produs.getKey().getDenumire())+produs.getValue());
+                }
+            }
+        }
+        return produseMap;
+    }
+
+    public void genereazaRaportVanzariZiCurenta() {
+        String[] produseVandute = new String[]{};
+        String[] produseVanduteUpdated = null;
+        double[] valoareTotalaProdus = new double[]{};
+        double[] valoareTotalaProdusUpdated = null;
+        int[] nrComenzi = new int[]{};
+        int[] nrComenziUpdated = null;
+        for (Comanda comanda : comenzi) {
+            LocalDate currentDate = LocalDate.now();
+            if(currentDate.getDayOfMonth() == comanda.getData().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().getDayOfMonth()) {
+                for(Map.Entry<Produs, Integer> produs : comanda.getProduse().entrySet()) {
+                    if(Arrays.stream(produseVandute).noneMatch(item-> item.equals(produs.getKey().getDenumire()))) {
+                        produseVanduteUpdated = Arrays.copyOf(produseVandute, produseVandute.length + 1);
+                        produseVanduteUpdated[produseVandute.length] = produs.getKey().getDenumire();
+                        produseVandute = produseVanduteUpdated;
+
+                        valoareTotalaProdusUpdated = Arrays.copyOf(valoareTotalaProdus,valoareTotalaProdus.length + 1);
+                        valoareTotalaProdusUpdated[valoareTotalaProdus.length] = produs.getKey().getPret() * produs.getValue();
+                        valoareTotalaProdus = valoareTotalaProdusUpdated;
+
+                        nrComenziUpdated = Arrays.copyOf(nrComenzi, nrComenzi.length + 1);
+                        nrComenziUpdated[nrComenzi.length] = 1;
+                        nrComenzi = nrComenziUpdated;
+                    } else {
+                        int index = Arrays.stream(produseVandute).collect(Collectors.toList()).indexOf(produs.getKey().getDenumire());
+                        valoareTotalaProdus[index] += produs.getKey().getPret() * produs.getValue();
+                        nrComenzi[index] += 1;
+                    }
+                }
+            }
+        }
+
+        String today = LocalDate.now().getDayOfMonth()+"."+LocalDate.now().getMonth()+"."+LocalDate.now().getYear();
+
+        if(produseVandute.length !=0) {
+
+            try (BufferedWriter out = new BufferedWriter(new FileWriter("vanzari_" + today + ".txt"))) {
+                out.write("======================== RAPORT VANZARI ZILNICE - " + today + " ========================");
+                out.newLine();
+                out.write("Denumire produs | Valoare vanzari | Nr. comenzi ");
+                out.newLine();
+                out.write("------------------------------------------------------------------------------------------");
+                out.newLine();
+
+                for (int i = 0; i < produseVandute.length; i++) {
+                    out.write("\n"+produseVandute[i]+ " -------- " + valoareTotalaProdus[i] + " -------- " + nrComenzi[i]);
+                }
+
+                out.newLine();
+                out.write("==========================================================================================");
+                System.out.println("Raport generat cu succes in fisierul vanzari_"+ today +".txt");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Nu exista comenzi in aceasta zi.");
+        }
+    }
+
+    private HashMap<String, Integer> sortHashMapByValue(HashMap<String, Integer> hm) {
+        List<Map.Entry<String, Integer> > list = new LinkedList<Map.Entry<String, Integer> >(hm.entrySet());
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer> >() {
+            public int compare(Map.Entry<String, Integer> a,
+                               Map.Entry<String, Integer> b)
+            {
+                return (b.getValue()).compareTo(a.getValue());
+            }
+        });
+        HashMap<String, Integer> temp = new LinkedHashMap<String, Integer>();
+        for (Map.Entry<String, Integer> item : list) {
+            temp.put(item.getKey(), item.getValue());
+        }
+        return temp;
+    }
+
+
+    public void genereazaRaportProdusePopulare() {
+        HashMap<String,Integer> produseMap = calculeazaVanzariTotalePerProdus();
+        produseMap = sortHashMapByValue(produseMap);
+        try (BufferedWriter out = new BufferedWriter(new FileWriter("produse_populare.txt"))) {
+            out.write("============================= RAPORT PRODUSE POPULARE =============================");
+            out.newLine();
+            out.write("Denumire produs | Nr. produse comandate ");
+            out.newLine();
+            out.write("-----------------------------------------------------------------------------------");
+            out.newLine();
+            for(Map.Entry<String, Integer> produs : produseMap.entrySet()) {
+                out.write("\n"+ produs.getKey() + "-------"+produs.getValue());
+            }
+            out.newLine();
+
+            out.write("===================================================================================");
+            System.out.println("Raport generat cu succes in fisierul produse_populare.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -136,25 +247,12 @@ public class Restaurant {
         return total;
     }
 
-    public String produsPreferatZiCurenta() {
-        HashMap<Produs, Integer> produseMap = new HashMap<>();
-        for(Comanda comanda: comenzi) {
-            for(Map.Entry<Produs, Integer> produs : comanda.getProduse().entrySet()) {
-                if(!(produseMap.containsKey(produs.getKey()))) {
-                    produseMap.put(produs.getKey(),produs.getValue());
-                } else {
-                    produseMap.put(produs.getKey(), produseMap.get(produs.getKey())+produs.getValue());
-                }
-            }
-        }
-        Produs produsPreferat = Collections.max(produseMap.entrySet(), Map.Entry.comparingByValue()).getKey();
 
-        return produsPreferat.getDenumire();
-    }
-
-    public String produsPreferatAllTime() {
-        String produsPreferat = "";
-        return produsPreferat;
+    public void produsPreferat() {
+        HashMap<String, Integer> produseMap = calculeazaVanzariTotalePerProdus();
+        Map.Entry<String,Integer> produsPreferat = Collections.max(produseMap.entrySet(), Map.Entry.comparingByValue());
+        System.out.println("Produsul preferat al clientilor este " + produsPreferat.getKey() + " si a fost comandat de "+
+                produsPreferat.getValue() + " ori.");
     }
 
     public Meniu getMeniu(String tipMeniu) {
@@ -194,4 +292,5 @@ public class Restaurant {
         }
         return produseComandate;
     }
+
 }

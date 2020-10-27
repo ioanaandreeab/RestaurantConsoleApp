@@ -7,7 +7,7 @@ import jline.TerminalFactory;
 import org.fusesource.jansi.AnsiConsole;
 import proj.clase.ModPlata;
 import proj.clase.*;
-import proj.exceptii.ExceptieNrTelefon;
+import proj.exceptii.ExceptiePersonalizata;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -152,8 +152,8 @@ public class Main {
                                 nrTelefonValid = true;
                             }
                             else try {
-                                throw new ExceptieNrTelefon("Nr. de telefon trebuie sa inceapa cu caracterul 0 si sa aiba 10 caractere");
-                            } catch (ExceptieNrTelefon e) {
+                                throw new ExceptiePersonalizata("Nr. de telefon trebuie sa inceapa cu caracterul 0 si sa aiba 10 caractere");
+                            } catch (ExceptiePersonalizata e) {
                                 System.out.println(e.getMesaj());
                             }
                         }

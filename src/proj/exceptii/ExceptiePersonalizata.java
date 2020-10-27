@@ -1,6 +1,6 @@
 package proj.exceptii;
 
-public class ExceptieNrTelefon extends IllegalArgumentException{
+public class ExceptiePersonalizata extends IllegalArgumentException{
     private String mesaj;
 
     public String getMesaj(){
@@ -11,7 +11,7 @@ public class ExceptieNrTelefon extends IllegalArgumentException{
         this.mesaj = mesaj;
     }
 
-    public ExceptieNrTelefon(String mesaj) {
+    public ExceptiePersonalizata(String mesaj) {
         super();
         this.mesaj = mesaj;
     }

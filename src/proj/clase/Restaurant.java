@@ -48,7 +48,6 @@ public class Restaurant {
             while (true) {
                 try {
                     Comanda comanda = (Comanda) reader.readObject();
-                    System.out.println(comanda);
                     adaugaComanda(comanda);
                 } catch (EOFException e) {
                     break;

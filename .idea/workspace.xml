@@ -7,13 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f10d5c1-ee45-4216-a8d6-ebc4aa3e248f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/proj_jar/proj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/proj_jar/proj.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proj/proj/clase/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proj/proj/clase/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proj/proj/clase/Comanda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proj/proj/clase/Comanda.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proj/proj/clase/Produs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proj/proj/clase/Produs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proj/proj/clase/Restaurant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proj/proj/clase/Restaurant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proj/proj/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proj/proj/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/comenzi.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/comenzi.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/proj/clase/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj/clase/Restaurant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/proj/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj/main/Main.java" afterDir="false" />
@@ -30,8 +23,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj/clase/Categorie.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+            <state relative-caret-position="153">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -39,17 +32,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj/clase/Produs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="-170">
               <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/proj/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-45">
-              <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+            <state relative-caret-position="145">
+              <caret line="150" column="84" lean-forward="true" selection-start-line="150" selection-start-column="84" selection-end-line="150" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,15 +50,40 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proj/exceptii/ExceptieNrTelefon.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <element signature="e#148#149#0" expanded="true" />
+                <element signature="e#169#170#0" expanded="true" />
+                <element signature="e#227#228#0" expanded="true" />
+                <element signature="e#260#261#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proj/clase/Meniu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-221">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/proj/clase/Restaurant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="254" column="50" selection-start-line="254" selection-start-column="50" selection-end-line="254" selection-end-column="50" />
+            <state relative-caret-position="102">
+              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#7883#7912#0" expanded="true" />
                 <element signature="e#8372#8389#0" expanded="true" />
-                <element signature="e#10743#10744#0" expanded="true" />
+                <element signature="e#10599#10600#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,6 +95,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -90,8 +109,9 @@
         <option value="$PROJECT_DIR$/src/proj/clase/Produs.java" />
         <option value="$PROJECT_DIR$/src/proj/ModPlata.java" />
         <option value="$PROJECT_DIR$/src/proj/clase/Comanda.java" />
-        <option value="$PROJECT_DIR$/src/proj/main/Main.java" />
         <option value="$PROJECT_DIR$/src/proj/clase/Restaurant.java" />
+        <option value="$PROJECT_DIR$/src/proj/exceptii/ExceptieNrTelefon.java" />
+        <option value="$PROJECT_DIR$/src/proj/main/Main.java" />
       </list>
     </option>
   </component>
@@ -126,6 +146,20 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="proj" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="proj" type="462c0819:PsiDirectoryNode" />
+              <item name="clase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="proj" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="proj" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptii" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -135,7 +169,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603801076592" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1603813643028" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -188,7 +222,7 @@
       <workItem from="1603650709456" duration="1220000" />
       <workItem from="1603652343147" duration="772000" />
       <workItem from="1603695267571" duration="732000" />
-      <workItem from="1603782691770" duration="13373000" />
+      <workItem from="1603782691770" duration="20463000" />
     </task>
     <task id="LOCAL-00001" summary="change in calculating the price for order">
       <created>1603703887306</created>
@@ -201,13 +235,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35496000" />
+    <option name="totallyTimeSpent" value="42586000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2065053" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2065053" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -224,7 +258,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49924356" visible="true" weight="0.42389524" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49924356" visible="true" weight="0.37806875" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.20949264" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -263,20 +297,6 @@
     <entry file="file://$PROJECT_DIR$/src/meniu_mancare.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj/clase/Categorie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj/clase/Produs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj/clase/ModPlata.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -284,24 +304,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj/main/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/proj/clase/Restaurant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+        <state relative-caret-position="102">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#7883#7912#0" expanded="true" />
+            <element signature="e#8372#8389#0" expanded="true" />
+            <element signature="e#10599#10600#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj/clase/Restaurant.java">
+    <entry file="file://$PROJECT_DIR$/src/proj/clase/Meniu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="254" column="50" selection-start-line="254" selection-start-column="50" selection-end-line="254" selection-end-column="50" />
+        <state relative-caret-position="-221">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj/clase/Produs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj/clase/Categorie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj/exceptii/ExceptieNrTelefon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           <folding>
-            <element signature="e#7883#7912#0" expanded="true" />
-            <element signature="e#8372#8389#0" expanded="true" />
-            <element signature="e#10743#10744#0" expanded="true" />
+            <element signature="e#148#149#0" expanded="true" />
+            <element signature="e#169#170#0" expanded="true" />
+            <element signature="e#227#228#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="150" column="84" lean-forward="true" selection-start-line="150" selection-start-column="84" selection-end-line="150" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

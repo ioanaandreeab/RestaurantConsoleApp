@@ -7,6 +7,7 @@ import jline.TerminalFactory;
 import org.fusesource.jansi.AnsiConsole;
 import proj.clase.ModPlata;
 import proj.clase.*;
+import proj.exceptii.ExceptieNrTelefon;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,8 +23,7 @@ public class Main {
     private static final String COMENZI_ABSOLUTE_PATH = "C:\\Users\\ioana\\Desktop\\Master\\An1\\PPOO\\proj\\src\\comenzi.dat";
 
     public static void main(String[] args) {
-
-        //produsele comandate de client
+        //produsele comandate de clientul curent
         HashMap<Produs, Integer> produseMap;
         //initializare librarie
         AnsiConsole.systemInstall();
@@ -135,14 +135,28 @@ public class Main {
                             }
                         }
                         //introduceti nume si telefon
+                        boolean nrTelefonValid = false;
                         ConsolePrompt promptClient = new ConsolePrompt();
                         PromptBuilder promptBuilderClient = promptClient.getPromptBuilder();
                         promptBuilderClient.createInputPrompt().name("name").message("Introduceti numele: ").addPrompt();
-                        promptBuilderClient.createInputPrompt().name("phone").message("Introduceti nr. de telefon: ").addPrompt();
                         result = promptClient.prompt(promptBuilderClient.build());
                         String nume = ((InputResult) result.get("name")).getInput();
-                        String telefon = ((InputResult) result.get("phone")).getInput();
-
+                        String telefon = null;
+                        while (!nrTelefonValid) {
+                            ConsolePrompt promptTelefon = new ConsolePrompt();
+                            PromptBuilder promptBuilderTelefon = promptClient.getPromptBuilder();
+                            promptBuilderTelefon.createInputPrompt().name("phone").message("Introduceti nr. de telefon: ").addPrompt();
+                            result = promptTelefon.prompt(promptBuilderTelefon.build());
+                            telefon = ((InputResult) result.get("phone")).getInput();
+                            if(telefon.charAt(0) == '0' && telefon.length() == 10) {
+                                nrTelefonValid = true;
+                            }
+                            else try {
+                                throw new ExceptieNrTelefon("Nr. de telefon trebuie sa inceapa cu caracterul 0 si sa aiba 10 caractere");
+                            } catch (ExceptieNrTelefon e) {
+                                System.out.println(e.getMesaj());
+                            }
+                        }
 
                         //card de fidelitate
                         boolean hasCardFidelitate = false;

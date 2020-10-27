@@ -1,16 +1,10 @@
 package proj.clase;
 
-import proj.clase.Categorie;
-import proj.clase.Comanda;
-import proj.clase.Meniu;
-import proj.clase.Produs;
-
 import java.io.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Restaurant {
     private String nume;
@@ -246,7 +240,6 @@ public class Restaurant {
         }
         return total;
     }
-
 
     public void produsPreferat() {
         HashMap<String, Integer> produseMap = calculeazaVanzariTotalePerProdus();

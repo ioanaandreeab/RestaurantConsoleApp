@@ -32,10 +32,6 @@ public class Categorie {
         this.produse.add(produs);
     }
 
-    public void stergeProdus(Produs produs) {
-        this.produse.remove(produs);
-    }
-
     public void afisareProduse() {
         System.out.println("\tCategoria "+this.nume + " contine: ");
         for(Produs produs : this.produse) {

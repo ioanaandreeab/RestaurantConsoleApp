@@ -33,10 +33,6 @@ public class Meniu {
         this.categorii.add(categorie);
     }
 
-    public void stergeCategorie(Categorie categorie) {
-        this.categorii.remove(categorie);
-    }
-
     public void afisareMeniu() {
         System.out.println("Meniul "+this.tipMeniu + " contine: ");
         for(Categorie categorie : this.categorii) {

@@ -115,11 +115,27 @@ public class Main {
                             Produs produsAles = products.stream().filter(x -> x.getId() == Integer.valueOf(productChosen.getSelectedId())).collect(Collectors.toList()).get(0);
 
                             //introdu cantitatea
-                            ConsolePrompt promptClient = new ConsolePrompt();
-                            PromptBuilder promptBuilderClient = promptClient.getPromptBuilder();
-                            promptBuilderClient.createInputPrompt().name("cantitate").message("Introduceti cantitatea: ").addPrompt();
-                            result = promptClient.prompt(promptBuilderClient.build());
-                            String cantitate = ((InputResult) result.get("cantitate")).getInput();
+                            boolean cantitateValida = false;
+                            String cantitate = null;
+                            while(!cantitateValida) {
+                                ConsolePrompt promptClient = new ConsolePrompt();
+                                PromptBuilder promptBuilderClient = promptClient.getPromptBuilder();
+                                promptBuilderClient.createInputPrompt().name("cantitate").message("Introduceti cantitatea: ").addPrompt();
+                                result = promptClient.prompt(promptBuilderClient.build());
+                                cantitate = ((InputResult) result.get("cantitate")).getInput();
+
+                                if(cantitate != null) {
+                                    if (!(cantitate.equals("null")) && (cantitate.matches("-?(0|[1-9]\\d*)"))) {
+                                        cantitateValida = true;
+                                    }
+                                } else {
+                                    try {
+                                        throw new ExceptiePersonalizata("Trebuie sa introduceti o valoare numerica pentru cantitate");
+                                    } catch (ExceptiePersonalizata e) {
+                                        System.out.println(e.getMesaj());
+                                    }
+                                }
+                            }
 
                             produseMap.put(produsAles, Integer.valueOf(cantitate));
 
@@ -134,22 +150,42 @@ public class Main {
                                 adaugaProduse = false;
                             }
                         }
-                        //introduceti nume si telefon
+
+                        //introduceti nume
                         boolean nrTelefonValid = false;
-                        ConsolePrompt promptClient = new ConsolePrompt();
-                        PromptBuilder promptBuilderClient = promptClient.getPromptBuilder();
-                        promptBuilderClient.createInputPrompt().name("name").message("Introduceti numele: ").addPrompt();
-                        result = promptClient.prompt(promptBuilderClient.build());
-                        String nume = ((InputResult) result.get("name")).getInput();
+                        boolean numeValid = false;
+                        String nume = null;
+                        while(!numeValid) {
+                            ConsolePrompt promptClient = new ConsolePrompt();
+                            PromptBuilder promptBuilderClient = promptClient.getPromptBuilder();
+                            promptBuilderClient.createInputPrompt().name("name").message("Introduceti numele: ").addPrompt();
+                            result = promptClient.prompt(promptBuilderClient.build());
+                            nume = ((InputResult) result.get("name")).getInput();
+
+                            if(nume != null) {
+                                if(nume.length() > 3) {
+                                    numeValid = true;
+                                }
+                            }
+                            else try {
+                                throw new ExceptiePersonalizata("Numele trebuie sa contina cel putin 3 caractere");
+                            } catch (ExceptiePersonalizata e) {
+                                System.out.println(e.getMesaj());
+                            }
+                        }
+
+                        //introduceti telefon
                         String telefon = null;
                         while (!nrTelefonValid) {
                             ConsolePrompt promptTelefon = new ConsolePrompt();
-                            PromptBuilder promptBuilderTelefon = promptClient.getPromptBuilder();
+                            PromptBuilder promptBuilderTelefon = promptTelefon.getPromptBuilder();
                             promptBuilderTelefon.createInputPrompt().name("phone").message("Introduceti nr. de telefon: ").addPrompt();
                             result = promptTelefon.prompt(promptBuilderTelefon.build());
                             telefon = ((InputResult) result.get("phone")).getInput();
-                            if(telefon.charAt(0) == '0' && telefon.length() == 10) {
-                                nrTelefonValid = true;
+                            if(telefon != null) {
+                                if(telefon.charAt(0) == '0' && telefon.length() == 10) {
+                                    nrTelefonValid = true;
+                                }
                             }
                             else try {
                                 throw new ExceptiePersonalizata("Nr. de telefon trebuie sa inceapa cu caracterul 0 si sa aiba 10 caractere");

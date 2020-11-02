@@ -7,15 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f10d5c1-ee45-4216-a8d6-ebc4aa3e248f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/proj_jar/proj.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/proj_jar/proj.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proj/proj/clase/Categorie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proj/proj/clase/Categorie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proj/proj/clase/Meniu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proj/proj/clase/Meniu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proj/proj/clase/Restaurant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proj/proj/clase/Restaurant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/proj/proj/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/proj/proj/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proj/clase/Categorie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj/clase/Categorie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proj/clase/Meniu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj/clase/Meniu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proj/clase/Restaurant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj/clase/Restaurant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/comenzi.dat" beforeDir="false" afterPath="$PROJECT_DIR$/src/comenzi.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proj/clase/Comanda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj/clase/Comanda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/proj/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proj/main/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,11 +23,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/proj/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3179">
-              <caret line="187" column="33" selection-start-line="187" selection-start-column="33" selection-end-line="187" selection-end-column="33" />
+            <state relative-caret-position="187">
+              <caret line="236" column="137" selection-start-line="236" selection-start-column="137" selection-end-line="236" selection-end-column="137" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proj/clase/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proj/clase/Comanda.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -58,11 +69,11 @@
         <option value="$PROJECT_DIR$/src/proj/clase/Client.java" />
         <option value="$PROJECT_DIR$/src/proj/clase/Produs.java" />
         <option value="$PROJECT_DIR$/src/proj/ModPlata.java" />
-        <option value="$PROJECT_DIR$/src/proj/clase/Comanda.java" />
         <option value="$PROJECT_DIR$/src/proj/exceptii/ExceptieNrTelefon.java" />
         <option value="$PROJECT_DIR$/src/proj/clase/Restaurant.java" />
         <option value="$PROJECT_DIR$/src/proj/clase/Meniu.java" />
         <option value="$PROJECT_DIR$/src/proj/clase/Categorie.java" />
+        <option value="$PROJECT_DIR$/src/proj/clase/Comanda.java" />
         <option value="$PROJECT_DIR$/src/proj/main/Main.java" />
       </list>
     </option>
@@ -177,7 +188,7 @@
       <workItem from="1603782691770" duration="22157000" />
       <workItem from="1603888623896" duration="8160000" />
       <workItem from="1603984885208" duration="2332000" />
-      <workItem from="1604324817363" duration="5613000" />
+      <workItem from="1604324817363" duration="11815000" />
     </task>
     <task id="LOCAL-00001" summary="change in calculating the price for order">
       <created>1603703887306</created>
@@ -190,11 +201,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60385000" />
+    <option name="totallyTimeSpent" value="66587000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16868381" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -213,7 +223,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49924356" visible="true" weight="0.2913257" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49924356" visible="true" weight="0.34369886" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.20949264" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -270,13 +280,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj/clase/Comanda.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="68" column="31" lean-forward="true" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj/clase/Restaurant.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4256">
@@ -289,13 +292,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proj/clase/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj/clase/Meniu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -303,10 +299,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj/clase/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="35" column="25" lean-forward="true" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proj/clase/Comanda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/proj/main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3179">
-          <caret line="187" column="33" selection-start-line="187" selection-start-column="33" selection-end-line="187" selection-end-column="33" />
+        <state relative-caret-position="187">
+          <caret line="236" column="137" selection-start-line="236" selection-start-column="137" selection-end-line="236" selection-end-column="137" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

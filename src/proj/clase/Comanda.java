@@ -52,9 +52,9 @@ public class Comanda implements Serializable {
         this.data = data;
     }
 
-    public Comanda(Client client, HashMap<Produs, Integer> produse) {
+    public Comanda(Client client, HashMap<Produs, Integer> produse, int discount) {
         this.client = client;
-        this.discount = 0;
+        this.discount = discount;
         this.pret = 0;
         this.produse = produse;
         this.data = new Date();
@@ -65,6 +65,7 @@ public class Comanda implements Serializable {
         for (Map.Entry<Produs, Integer> produs : this.produse.entrySet()) {
             this.pret += produs.getKey().getPret()*produs.getValue();
         }
+        this.pret -= this.pret * this.discount/100;
         this.modPlata = modPlata;
         this.data = new Date();
     }

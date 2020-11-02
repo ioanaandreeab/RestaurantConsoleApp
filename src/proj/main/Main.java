@@ -21,6 +21,7 @@ public class Main {
     private static final String MENIU_BAUTURI_ABSOLUTE_PATH = "C:\\Users\\ioana\\Desktop\\Master\\An1\\PPOO\\proj\\src\\meniu_bauturi.txt";
     private static final String MENIU_MANCARE_ABSOLUTE_PATH = "C:\\Users\\ioana\\Desktop\\Master\\An1\\PPOO\\proj\\src\\meniu_mancare.txt";
     private static final String COMENZI_ABSOLUTE_PATH = "C:\\Users\\ioana\\Desktop\\Master\\An1\\PPOO\\proj\\src\\comenzi.dat";
+    private static final int VALOARE_DISCOUNT_CARD_FIDELITATE = 10;
 
     public static void main(String[] args) {
         //produsele comandate de clientul curent
@@ -230,9 +231,16 @@ public class Main {
 
                         if (confirmComanda.equals("YES")) {
                             Client clientCurent = new Client(nume, telefon, hasCardFidelitate);
-                            Comanda comanda = new Comanda(clientCurent, produseMap);
+                            int discount = 0;
+                            if(hasCardFidelitate) {
+                                discount = VALOARE_DISCOUNT_CARD_FIDELITATE;
+                                System.out.println("Comanda dvs. beneficiaza de o reducere de " + VALOARE_DISCOUNT_CARD_FIDELITATE + " %.");
+                            }
+                            Comanda comanda = new Comanda(clientCurent, produseMap, discount);
                             comanda.plaseazaComanda(modPlataAles);
                             comenziCurente.add(comanda);
+                        } else {
+                            System.out.println("Ati renuntat la comanda");
                         }
 
                         break;

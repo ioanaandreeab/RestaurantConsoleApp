@@ -209,24 +209,27 @@ public class Restaurant {
     public void genereazaRaportProdusePopulare() {
         HashMap<String,Integer> produseMap = calculeazaVanzariTotalePerProdus();
         produseMap = sortHashMapByValue(produseMap);
-        try (BufferedWriter out = new BufferedWriter(new FileWriter("produse_populare.txt"))) {
-            out.write("============================= RAPORT PRODUSE POPULARE =============================");
-            out.newLine();
-            out.write("Denumire produs | Nr. produse comandate ");
-            out.newLine();
-            out.write("-----------------------------------------------------------------------------------");
-            out.newLine();
-            for(Map.Entry<String, Integer> produs : produseMap.entrySet()) {
-                out.write("\n"+ produs.getKey() + "-------"+produs.getValue());
+        if(produseMap.size()!=0) {
+            try (BufferedWriter out = new BufferedWriter(new FileWriter("produse_populare.txt"))) {
+                out.write("============================= RAPORT PRODUSE POPULARE =============================");
+                out.newLine();
+                out.write("Denumire produs | Nr. produse comandate ");
+                out.newLine();
+                out.write("-----------------------------------------------------------------------------------");
+                out.newLine();
+                for (Map.Entry<String, Integer> produs : produseMap.entrySet()) {
+                    out.write("\n" + produs.getKey() + "-------" + produs.getValue());
+                }
+                out.newLine();
+
+                out.write("===================================================================================");
+                System.out.println("Raport generat cu succes in fisierul produse_populare.txt");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            out.newLine();
-
-            out.write("===================================================================================");
-            System.out.println("Raport generat cu succes in fisierul produse_populare.txt");
-        } catch (IOException e) {
-            e.printStackTrace();
+        } else {
+            System.out.println("Nu a fost comandat niciun produs pana in prezent");
         }
-
     }
 
     public double interogheazaVanzariZiCurenta() {
@@ -242,9 +245,13 @@ public class Restaurant {
 
     public void produsPreferat() {
         HashMap<String, Integer> produseMap = calculeazaVanzariTotalePerProdus();
-        Map.Entry<String,Integer> produsPreferat = Collections.max(produseMap.entrySet(), Map.Entry.comparingByValue());
-        System.out.println("Produsul preferat al clientilor este " + produsPreferat.getKey() + " si a fost comandat de "+
-                produsPreferat.getValue() + " ori.");
+        if(produseMap.size()!=0) {
+            Map.Entry<String,Integer> produsPreferat = Collections.max(produseMap.entrySet(), Map.Entry.comparingByValue());
+            System.out.println("Produsul preferat al clientilor este " + produsPreferat.getKey() + " si a fost comandat de "+
+                    produsPreferat.getValue() + " ori.");
+        } else {
+            System.out.println("Nu a fost comandat niciun produs pana in prezent.");
+        }
     }
 
     public Meniu getMeniu(String tipMeniu) {

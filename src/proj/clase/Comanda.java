@@ -65,7 +65,9 @@ public class Comanda implements Serializable {
         for (Map.Entry<Produs, Integer> produs : this.produse.entrySet()) {
             this.pret += produs.getKey().getPret()*produs.getValue();
         }
-        this.pret -= this.pret * this.discount/100;
+        if(this.discount != 0) {
+            this.pret -= this.pret * this.discount/100;
+        }
         this.modPlata = modPlata;
         this.data = new Date();
     }

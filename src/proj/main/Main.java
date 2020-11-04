@@ -239,6 +239,7 @@ public class Main {
                             Comanda comanda = new Comanda(clientCurent, produseMap, discount);
                             comanda.plaseazaComanda(modPlataAles);
                             comenziCurente.add(comanda);
+                            System.out.println("Comanda plasata!\n" + comanda.toString());
                         } else {
                             System.out.println("Ati renuntat la comanda");
                         }

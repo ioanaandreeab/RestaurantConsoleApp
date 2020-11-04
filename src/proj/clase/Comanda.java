@@ -78,9 +78,9 @@ public class Comanda implements Serializable {
         }
         return "Comanda: " +
                 "\n"+ client.toString() +
-                "Produse:" + stringProduseComandate +
-                ", Pret:" + pret +
-                ", Discount:" + discount +
+                "\nProduse:" + stringProduseComandate +
+                ", Pret total comanda:" + pret +
+                ", Discount aplicat:" + discount +
                 ", Mod plata: " + modPlata +
                 "\nData: " + data ;
     }

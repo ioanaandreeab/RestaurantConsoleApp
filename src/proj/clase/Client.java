@@ -42,6 +42,6 @@ public class Client implements Serializable {
     public String toString() {
         return "Client: " +
                 nume +
-                " nr. telefon: " + nrTelefon;
+                ", nr. telefon: " + nrTelefon;
     }
 }
